@@ -1,0 +1,1 @@
+spurs blog, no not in texas

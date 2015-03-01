@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<html> 
+<head> 
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/gr_list.css' %}">
+     
+</head>
+
+
+<body> 
+  <div class="page-header">
+    <h2><a href="/">Grocery List</a></h2>
+     <a href="{% url 'gr_list.views.post_new' %}" class="top-menu">Add Form<span class="glyphicon glyphicon-plus"></span></a>
+    
+  </div>
+
+
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    {% for item in groc_list %}
+      <div class="post">
+
+        <h3> {{ item.item_name }} </h3>
+
+        <ul id="list">
+          <li>amount: {{ item.amount }} </li>
+          <li>weight: {{ item.weight }} </li>
+          <li>content: {{ item.content }} </li>
+          <li>created: {{ item.created_at|linebreaks }} </li>
+        </ul>
+
+      </div>
+
+{% endfor %}
+
+
+
+<a href="http://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page">what is django?</a>
+
+</body>
+</html>

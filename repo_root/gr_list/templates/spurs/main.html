@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<html> 
+<head> 
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/spurs.css' %}">
+     
+</head>
+
+
+<body> 
+  <div class="page-header">
+    <h2><a href="/">A Yank With Spurs</a></h2>
+     <a href="{% url 'gr_list.views.post_new' %}" class="top-menu">comment<span class="glyphicon glyphicon-plus"></span></a>
+    
+  </div>
+
+
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    {% for item in spurs_list %}
+      <div class="post">
+
+        
+
+      </div>
+
+{% endfor %}
+
+
+
+<a href="http://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page">what iyzzit</a>
+
+</body>
+</html>
